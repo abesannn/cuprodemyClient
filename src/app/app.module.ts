@@ -19,12 +19,10 @@ import { UserViewAdminComponent } from './component/application/user/routed/admi
 import { PaginationUnroutedComponent } from './component/shared/unrouted/pagination-unrouted/pagination-unrouted.component';
 import { MenuComponent } from './component/shared/routed/menu/menu.component';
 import { HomeComponent } from './component/shared/routed/home/home.component';
-
-
-
+import { LoginComponent } from './component/shared/routed/login/login.component';
+import { LogoutComponent } from './component/shared/routed/logout/logout.component';
 @NgModule({
   declarations: [
-
     MenuComponent,
     HomeComponent,
     AppComponent,
@@ -37,6 +35,9 @@ import { HomeComponent } from './component/shared/routed/home/home.component';
     UserEditAdminComponent,
     UserRemoveAdminComponent,
     UserDetailAdminUnroutedComponent,
+    LoginComponent,
+    LogoutComponent,
+    
   ],
   imports: [
     BrowserModule,

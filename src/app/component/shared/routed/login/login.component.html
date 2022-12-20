@@ -1,0 +1,53 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-5 text-center">
+            <div class="bg-light mt-5 p-5">
+                <form [formGroup]="formularioLogin" (ngSubmit)="onSubmit()" novalidate class="row g-3">
+                    <h4><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i>Login</h4>
+                    <div class="col-12 text-start">
+                        <label for="nickname" class="form-label">Nickname</label>
+                        <div class="input-group has-validation">
+                            <input type="text" formControlName="nickname" id="nickname" class="form-control"
+                                placeholder="Nombre de usuario"
+                                [class.is-invalid]="formularioLogin.get('nickname')!.dirty && formularioLogin.get('nickname')!.invalid">
+                            <div class="invalid-feedback"
+                                *ngIf="!formularioLogin.get('nickname').errors?.['minlength'] || formularioLogin.get('nickname').dirty">
+                                La longitud mínima es 5
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 text-start">
+                        <label for="pass" class="form-label">Pass</label>
+                        <input type="password" formControlName="pass" id="pass" name="pass"
+                            class="form-control" placeholder="Contraseña"
+                            [class.is-invalid]="formularioLogin.get('pass')!.dirty && formularioLogin.get('pass')!.invalid"
+                            required>
+                        <div class="invalid-feedback"
+                            *ngIf="!formularioLogin.get('pass').errors?.['required'] || formularioLogin.get('pass').dirty">
+                            Por favor introduce la contraseña</div>
+                        <div class="invalid-feedback"
+                            *ngIf="!formularioLogin.get('pass').errors?.['minlength'] || formularioLogin.get('pass').dirty">
+                            La longitud mínima es 5
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="control-group text-center mt-3">
+                            <button type="submit" class="btn btn-primary"><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i>
+                                Acceder</button>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="control-group text-center mt-3">
+                            <button class="btn btn-danger m-2" (click)="loginAdmin()"><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i> admin</button>
+                            <button class="btn btn-success m-2" (click)="loginUser()"><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i> user</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

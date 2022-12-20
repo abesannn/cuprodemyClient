@@ -6,6 +6,8 @@ import { UserPlistAdminComponent } from './component/application/user/routed/adm
 import { UserRemoveAdminComponent } from './component/application/user/routed/admin/UserRemoveAdmin/user-remove-admin/user-remove-admin.component';
 import { UserViewAdminComponent } from './component/application/user/routed/admin/user-view-admin/user-view-admin.component';
 import { HomeComponent } from './component/shared/routed/home/home.component';
+import { LoginComponent } from './component/shared/routed/login/login.component';
+import { LogoutComponent } from './component/shared/routed/logout/logout.component';
 
 
 const routes: Routes = [
@@ -16,6 +18,9 @@ const routes: Routes = [
   { path: 'admin/user/remove/:id', component: UserRemoveAdminComponent },
   { path: 'admin/user/edit/:id', component: UserEditAdminComponent },
   { path: 'admin/user/new', component: UserNewAdminComponent },
+  { path: 'login', component: LoginComponent},
+  { path: 'logout', component: LogoutComponent}
+
 ];
 
 @NgModule({

@@ -36,12 +36,12 @@ export class UserNewAdminComponent implements OnInit {
   ngOnInit() {
     this.oForm = <FormGroup>this.oFormBuilder.group({
       id: [''],
-      nombre: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
-      dni: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+      nombre: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+      dni: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(10)]],
       apellido1: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       apellido2: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      nickname: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]]
+      nickname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]]
     });
   }
 
