@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/User.service';
 import { IPage, IUser } from 'src/app/model/generic';
+import { SessionService } from 'src/app/service/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-UserPlistAdmin',
@@ -18,9 +20,19 @@ export class UserPlistAdminComponent implements OnInit {
   sortDirection: string = "";
 
   constructor(
-    private oUserService: UserService
-  ) {
-    this.getPage();
+    private oUserService: UserService,
+    private oAuthService: SessionService,
+    private oRouter: Router
+    
+    ) {
+    oAuthService.checkSession().subscribe({
+        next: (data: any) => {
+        this.getPage();
+      },
+      error:(error:any) => {
+        this.oRouter.navigate(['/login']);
+      }
+    })
   }
 
   ngOnInit() {

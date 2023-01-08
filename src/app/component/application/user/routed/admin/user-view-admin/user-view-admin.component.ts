@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IUser } from 'src/app/model/generic';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-user-view-admin',
@@ -13,8 +14,20 @@ export class UserViewAdminComponent implements OnInit {
   oUser: IUser = null;
 
   constructor(
-    private oActivatedRoute: ActivatedRoute
+    private oActivatedRoute: ActivatedRoute,
+    private oAuthService: SessionService,
+    private oRouter: Router,
   ) {
+    oAuthService.reload();
+    oAuthService.checkSession().subscribe({
+      next: (data: any) => {
+
+      },
+      error:(error:any) => {
+        this.oRouter.navigate(['/login']);
+      }
+    })
+
     this.id = oActivatedRoute.snapshot.params['id'];
   }
 

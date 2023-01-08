@@ -23,10 +23,20 @@ export class LoginComponent implements OnInit {
     private FormBuilder: UntypedFormBuilder,
     private oRoute: ActivatedRoute,
     private oRouter: Router,
-    private oSessionService: SessionService,
     private oCryptoService: CryptoService, 
-    public oMetadataService: MetadataService 
+    public oMetadataService: MetadataService,
+    private oAuthService: SessionService
+
   ) {
+    oAuthService.reload();
+    oAuthService.checkSession().subscribe({
+      next: (data: any) => {
+        // ok
+      },
+      error: (error: any) => {
+        this.oRouter.navigate(['/login']);
+      }
+    })
 
     if (oRoute.snapshot.data['message']) {
       this.oUserSession = this.oRoute.snapshot.data['message'];
@@ -48,7 +58,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     const loginData = { nickname: this.formularioLogin.get('nickname')!.value, pass: this.oCryptoService.getSHA256(this.formularioLogin.get('pass')!.value) };
     console.log("login:onSubmit: ", loginData);
-    this.oSessionService.login(JSON.stringify(loginData)).subscribe(data => {
+    this.oAuthService.login(JSON.stringify(loginData)).subscribe(data => {
       localStorage.setItem("player", JSON.stringify(data.toString()));
       if (data != null) {
         this.oRouter.navigate(['/','home']);

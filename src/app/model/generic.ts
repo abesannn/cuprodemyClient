@@ -42,7 +42,7 @@ export interface IUser {
     id: number;
     dni: string;
     email: string;
-    tipousuario: ITipousuario;
+    tipousuario: boolean;
 }
 
 

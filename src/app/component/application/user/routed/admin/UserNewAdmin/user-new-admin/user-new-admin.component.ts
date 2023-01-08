@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { IUser, IUser2Form, IUser2Send } from 'src/app/model/generic';
 
 import { UserService } from 'src/app/service/User.service';
+import { SessionService } from 'src/app/service/session.service';
 
 
 declare let bootstrap: any;
@@ -29,8 +30,19 @@ export class UserNewAdminComponent implements OnInit {
   constructor(
     private oRouter: Router,
     private oUserService: UserService,
-    private oFormBuilder: FormBuilder
+    private oFormBuilder: FormBuilder,
+    private oAuthService: SessionService
   ) {
+    oAuthService.reload();
+    oAuthService.checkSession().subscribe({
+      next: (data: any) => {
+
+      },
+      error:(error:any) => {
+        this.oRouter.navigate(['/login']);
+      }
+    })
+
   }
 
   ngOnInit() {

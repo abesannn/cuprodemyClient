@@ -5,6 +5,7 @@ import { IUser, IUser2Form, IUser2Send } from 'src/app/model/generic';
 
 
 import { UserService } from 'src/app/service/User.service';
+import { SessionService } from 'src/app/service/session.service';
 
 
 declare let bootstrap: any;
@@ -33,9 +34,23 @@ export class UserEditAdminComponent implements OnInit {
     private oRouter: Router,
     private oActivatedRoute: ActivatedRoute,
     private oUserService: UserService,
-    private oFormBuilder: FormBuilder
+    private oFormBuilder: FormBuilder,
+    private oAuthService: SessionService
+
   ) {
+    oAuthService.reload();
+    oAuthService.checkSession().subscribe({
+      next: (data: any) => {
+
+      },
+      error:(error:any) => {
+        this.oRouter.navigate(['/login']);
+      }
+    })
+    
     this.id = oActivatedRoute.snapshot.params['id'];
+  
+    
   }
 
   ngOnInit() {
