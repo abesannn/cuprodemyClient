@@ -35,10 +35,10 @@ export interface IPage<T> {
 }
 
 export interface IUser {
-    nickname: any;
-    apellido2: any;
-    apellido1: any;
-    nombre: any;
+    nickname: string;
+    apellido2: string;
+    apellido1: string;
+    nombre: string;
     id: number;
     dni: string;
     email: string;

@@ -4,6 +4,7 @@ import { Observable, Subject, catchError, retry, tap, throwError } from 'rxjs';
 import { baseURL, httpOptions } from 'src/environments/environment';
 import { environment } from 'src/environments/environment.prod';
 import { IUser } from '../model/generic';
+import { IUserBean } from '../model/user-interface';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ import { IUser } from '../model/generic';
 
 export class SessionService {
 
-  private entityURL = '/sesion';
+  private entityURL = '/session';
   url: string = `${baseURL}${this.entityURL}`;
   subject = new Subject<void>();
 
@@ -21,10 +22,10 @@ export class SessionService {
 
   ) { }
 
-  login(loginData: String): Observable<String> {
+  login(loginData: IUserBean): Observable<IUser> {
     if (environment) console.log("SessionService: login");
-    return this.http.post<String>(this.url, loginData, httpOptions).pipe(
-      tap((u: String) => console.log("session.service login HTTP request executed", u)),
+    return this.http.post<IUser>(this.url, loginData, httpOptions).pipe(
+      tap((u: IUser) => console.log("session.service login HTTP request executed", u)),
       retry(1),
       catchError(this.handleError));
   }
