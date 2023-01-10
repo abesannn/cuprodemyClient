@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/User.service';
-import { IPage, IUser } from 'src/app/model/generic';
+import { IPage } from 'src/app/model/generic';
 import { SessionService } from 'src/app/service/session.service';
 import { Router } from '@angular/router';
+import { IUser } from 'src/app/model/user-interface';
 
 @Component({
   selector: 'app-UserPlistAdmin',
@@ -36,14 +37,14 @@ export class UserPlistAdminComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    
   }
-
+  
   getPage() {
     this.oUserService.getUserPlist(this.page, this.numberOfElements, this.strTermFilter, this.sortField, this.sortDirection)
-      .subscribe({
-        next: (resp: IPage<IUser>) => {
-          this.responseFromServer = resp;
+    .subscribe({
+      next: (resp: IPage<IUser>) => {
+        this.responseFromServer = resp;
           if (this.page > resp.totalPages - 1) {
             this.page = resp.totalPages - 1;
           }

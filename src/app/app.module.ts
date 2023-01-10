@@ -21,6 +21,8 @@ import { MenuComponent } from './component/shared/routed/menu/menu.component';
 import { HomeComponent } from './component/shared/routed/home/home.component';
 import { LoginComponent } from './component/shared/routed/login/login.component';
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
+import { UsuarioFinderComponent } from './component/shared/unrouted/usuario-finder/usuario-finder.component';
+import { TipousuarioFinderComponent } from './component/shared/unrouted/tipousuario-finder/tipousuario-finder.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -37,6 +39,8 @@ import { LogoutComponent } from './component/shared/routed/logout/logout.compone
     UserDetailAdminUnroutedComponent,
     LoginComponent,
     LogoutComponent,
+    UsuarioFinderComponent,
+    TipousuarioFinderComponent
     
   ],
   imports: [

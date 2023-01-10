@@ -3,8 +3,8 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, Subject, catchError, retry, tap, throwError } from 'rxjs';
 import { baseURL, httpOptions } from 'src/environments/environment';
 import { environment } from 'src/environments/environment.prod';
-import { IUser } from '../model/generic';
-import { IUserBean } from '../model/user-interface';
+
+import { IUser, IUserBean } from '../model/user-interface';
 
 
 @Injectable({

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IPage, IUser } from 'src/app/model/generic';
+import { IUser } from 'src/app/model/user-interface';
 import { UserService } from 'src/app/service/User.service';
 
 @Component({

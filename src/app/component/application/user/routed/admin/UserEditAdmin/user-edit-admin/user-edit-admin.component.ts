@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IUser, IUser2Form, IUser2Send } from 'src/app/model/generic';
+import { IUser, IUser2Form, IUser2Send } from 'src/app/model/user-interface';
 
 
 import { UserService } from 'src/app/service/User.service';

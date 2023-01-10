@@ -10,16 +10,18 @@ import { LoginComponent } from './component/shared/routed/login/login.component'
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
 
 
+
+
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'admin/user/plist', component: UserPlistAdminComponent },
-  { path: 'admin/user/view/:id', component: UserViewAdminComponent },
-  { path: 'admin/user/remove/:id', component: UserRemoveAdminComponent },
-  { path: 'admin/user/edit/:id', component: UserEditAdminComponent },
-  { path: 'admin/user/new', component: UserNewAdminComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'logout', component: LogoutComponent}
+  { path: '', component: HomeComponent, title: 'Home' },
+  { path: 'home', component: HomeComponent, title: 'Home' },
+  { path: 'admin/user/plist', component: UserPlistAdminComponent, title: 'Plist usuarios' },
+  { path: 'admin/user/view/:id', component: UserViewAdminComponent, title: 'Vista usuario' },
+  { path: 'admin/user/remove/:id', component: UserRemoveAdminComponent, title: 'Borrar usuario' },
+  { path: 'admin/user/edit/:id', component: UserEditAdminComponent, title: 'Editar usuario' },
+  { path: 'admin/user/new', component: UserNewAdminComponent, title: 'Nuevo usuario' },
+  { path: 'login', component: LoginComponent, title: 'Login'},
+  { path: 'logout', component: LogoutComponent, title: 'Logout'}
 
 ];
 

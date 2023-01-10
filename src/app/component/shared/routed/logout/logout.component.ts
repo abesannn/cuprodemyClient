@@ -3,7 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SessionService } from 'src/app/service/session.service';
 import { Location } from '@angular/common';
 import { MetadataService } from 'src/app/service/metadata.service';
-import { IUser } from 'src/app/model/generic';
+import { IUser } from 'src/app/model/user-interface';
+
 
 @Component({
   selector: 'app-logout',

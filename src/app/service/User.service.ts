@@ -1,9 +1,11 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IPage, IUser, IUser2Send } from '../model/generic';
+
 
 import { Observable } from 'rxjs';
 import { baseURL } from 'src/environments/environment';
+import { IPage } from '../model/generic';
+import { IUser, IUser2Send } from '../model/user-interface';
 
 
 @Injectable({

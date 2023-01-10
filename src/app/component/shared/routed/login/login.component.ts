@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { CryptoService } from 'src/app/service/crypto.service';
 import { MetadataService } from 'src/app/service/metadata.service';
 import { SessionService } from 'src/app/service/session.service';
-import { IUserBean, IUserBean2Form } from 'src/app/model/user-interface';
+import { IUser, IUserBean, IUserBean2Form } from 'src/app/model/user-interface';
 import { ParseSourceFile } from '@angular/compiler';
-import { IUser } from 'src/app/model/generic';
+
 
 @Component({
   selector: 'app-login',

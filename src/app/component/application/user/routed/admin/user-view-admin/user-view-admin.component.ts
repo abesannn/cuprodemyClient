@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IUser } from 'src/app/model/generic';
+import { IUser } from 'src/app/model/user-interface';
+
 import { SessionService } from 'src/app/service/session.service';
 
 @Component({

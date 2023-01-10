@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IUser } from 'src/app/model/generic';
+import { IUser } from 'src/app/model/user-interface';
+
 import { SessionService } from 'src/app/service/session.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { SessionService } from 'src/app/service/session.service';
 export class MenuComponent implements OnInit {
 
   isLogged: boolean = false;
-  isSupAdmin: boolean = false;
+  usuarioSesionTipoUsuario: number;
+
   loggedUser: string = '';
 
 
@@ -23,13 +25,14 @@ export class MenuComponent implements OnInit {
         this.oSessionService.checkSession().subscribe({
           next: (data: IUser) => {
             this.isLogged = true;
-            this.loggedUser = data.dni;
-            this.isSupAdmin = data.tipousuario;
+            this.loggedUser = data.nickname;
+            this.usuarioSesionTipoUsuario = data.tipousuario.id;
+
           },
           error: (error: any) => {
             this.isLogged = false;
             this.loggedUser = '';
-            this.isSupAdmin = false;
+            
            }
         })
       },
